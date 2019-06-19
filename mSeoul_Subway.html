@@ -13,6 +13,7 @@
             left: 0;
             width: 16px;
             height: 24px;
+            transform-origin: center bottom;
         }
 
         #subwayMap {
@@ -4554,7 +4555,7 @@
 
     function setMarkers(strList) {
         strList.forEach(str => {
-            var idx = stationList.findIndex(x=> x.station == str)
+            var idx = stationList.findIndex(x => x.station == str)
             if (idx != -1) {
                 var x = stationList[idx].prop
                 var transformData = x.transform.baseVal[0].matrix
@@ -4591,7 +4592,15 @@
             }
         })
     }
-    // setMarkers(["수유","미아사거리"])
+    function clearMarkers(){
+        var markers = document.querySelectorAll(".marker")
+        markers.forEach(x=>{
+            x.parentNode.removeChild(x)
+        })
+    }
+
+    // setMarkers(["수유", "숙대입구"])
+    // clearMarkers()
 </script>
 
 </html>
